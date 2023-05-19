@@ -1,9 +1,17 @@
+// const logger = require('./logger'); 
+/* 
+    Usamos a função require para importar um arquivo, o retorno dela será justamente o atributo
+    exports do objeto module.
 
-console.log(module);
-
-/*
-    O module é um objeto que não é global, pois ele pertence a cada arquivo
-    Portanto, ele possui um id, path entre outros attributos
-    Mais importante, ele só será exportado/importado se você explicitamente
-    falar que esse modulo deve ser exportado/importado.
+    OBS: É IMPORTANTE que você utilize o retorno como uma constante para que não aconteça, acidentalmente,
+    de alterar o valor dessa variável.
 */
+
+// logger.log('mensagem'); 
+/* 
+    Como importamos somente uma função, podemos trocar o retorno para em vez de retornar um obejto com todos os imports
+    Iremos importar somente a função 
+*/
+const log = require('./logger');
+
+log('mensagem');
