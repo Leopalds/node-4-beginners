@@ -1,16 +1,9 @@
-console.log() //From global variable
 
-setTimeout(); //global.setTimeout();
-clearTimeout();
+console.log(module);
 
-setInterval()
-clearInterval()
-
-var message = 'Olá, Mundo!';
-console.log(global.message); //undefined
-
-/*  São funções que no JS chamamos sobre o objeto window
-    Aqui no node chamamos pelo objeto global
-    a única diferença é que aqui, uma variável declarada não poderá ser
-    acessada pelo objeto global, pela modularização do Node.
+/*
+    O module é um objeto que não é global, pois ele pertence a cada arquivo
+    Portanto, ele possui um id, path entre outros attributos
+    Mais importante, ele só será exportado/importado se você explicitamente
+    falar que esse modulo deve ser exportado/importado.
 */
