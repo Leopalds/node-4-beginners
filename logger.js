@@ -1,8 +1,18 @@
+const EventEmitter = require('events');
+
 var url = 'http://mylogger.io/log';
 
-function log(message){
-    //Send a HTTp request
-    console.log(message);
+/*
+    Classe que extende um EventEmitter, para que utilizar o memos emissor de eventos
+*/
+class Logger extends EventEmitter {
+    log(message){
+        //Send a HTTp request
+        console.log(message);
+    
+        // Raise an event
+        this.emit('messageLogged', {id: 1, url: 'http:://'});
+    }
 }
 
-module.exports = log; // Aqui exportamos a função log para o objeto module, assim poderemos acessá-lo em outros arquivos
+module.exports = Logger;

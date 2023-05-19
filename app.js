@@ -1,13 +1,13 @@
+const EventEmitter = require('events');
 
-const EventEmitter = require('events'); //Usando PascalCase, pois é uma classe
-const emitter = new EventEmitter();
+/*
+    Aqui importamos e depois instaciamos um objeto da classe Logger
+    Logger é uma classe que pode emitir eventos
+*/
+const Logger = require('./logger');
+const logger = new Logger();
 
 //Register a listener
-emitter.on('messageLogged', (arg) => console.log('Listerner called', arg) );
-emitter.on('logging', (e) => console.log(e.message));
+logger.on('messageLogged', (arg) => console.log('Listerner called', arg) );
 
-// Raise an event
-emitter.emit('messageLogged', {id: 1, url: 'http:://'});
-
-//Raise: logging (data: message)
-emitter.emit('logging', {message: 'Olá, Mundo!'});
+logger.log('message');
