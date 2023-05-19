@@ -1,6 +1,11 @@
-//Modulo sobre Path
-const path = require('path'); //Caso não utilize o ./ ele vai utilizar um dos moduos padrões do node
+//Modulo sobre sistema operacional
+const os = require('os');
 
-var pathObj = path.parse(__filename);
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
 
-console.log(pathObj);
+//Template string 
+//ES6 / ES2015 : ECMAScript 6
+
+console.log(`Total Memory: ${totalMemory}`); //Exemplo de template string
+console.log(`Free Memory: ${freeMemory}`);
