@@ -1,13 +1,21 @@
-const EventEmitter = require('events');
+const http = require('http');
 
-/*
-    Aqui importamos e depois instaciamos um objeto da classe Logger
-    Logger é uma classe que pode emitir eventos
-*/
-const Logger = require('./logger');
-const logger = new Logger();
+const server = http.createServer((req, res) => {
+    if(req.url === '/'){
+        res.write('Olá, Mundo!');
+        res.end();
+    }
 
-//Register a listener
-logger.on('messageLogged', (arg) => console.log('Listerner called', arg) );
+    if(req.url === '/api/courses'){
+        res.write(JSON.stringify([1,2,3]));
+        res.end();
+    }
+});
 
-logger.log('message');
+// server.on('connection', (socket) => {
+//     console.log('New connection');
+// });
+
+server.listen(3000);
+
+console.log('Listening on ppoprt 3000...');
